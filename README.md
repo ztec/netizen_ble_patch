@@ -5,7 +5,19 @@ based on [lorek123/netizen_ble](https://github.com/lorek123/netizen_ble).
 The patched Python feeder library is included inside the integration folder.
 Home Assistant does **not** install `petnetizen-feeder` from PyPI.
 
-## Manual installation
+## Installation
+
+### Via HACS (recommended)
+
+1. Open **HACS → ⋮ → Custom repositories**.
+2. Add `https://github.com/ztec/netizen_ble_patch` and select type **Integration**.
+3. Click **Add**, then find **Pet Netizen BLE (bundled patch)** in HACS.
+4. Download the integration and restart Home Assistant.
+
+HACS installs the integration and its bundled patched library together. Future
+updates should come from **ztec/netizen_ble_patch**.
+
+### Manual
 
 1. Download or clone this repository.
 2. Copy the entire `custom_components/netizen_ble` directory into your Home
@@ -13,19 +25,30 @@ Home Assistant does **not** install `petnetizen-feeder` from PyPI.
    be `/config/custom_components/netizen_ble/manifest.json`, with the bundled
    `petnetizen_feeder` directory beside it.
 3. Restart Home Assistant.
-4. For a new device, open **Settings → Devices & services → Add integration →
-   Pet Netizen BLE**. Enter its Bluetooth address or use discovery.
-5. Leave **Use a verification code** off for the tested DU-F09B.
+
+### Replacing the upstream integration
 
 This fork keeps the `netizen_ble` domain and existing entity identifiers.
 If the upstream integration is already installed, back up its directory and
-replace it with this one; keep the existing Home Assistant device entry.
-Do not install two copies of that domain. If HACS manages the upstream copy,
-stop updating that copy through HACS, since an update would replace this patch.
+replace it with this fork; keep the existing Home Assistant device entry.
+If HACS manages `lorek123/netizen_ble`, remove that download from HACS before
+installing `ztec/netizen_ble_patch`, then restart after the replacement is
+installed. Both repositories use the same integration directory, so only this
+fork should manage it.
 
 Home Assistant still installs the normal Bluetooth transport dependencies
 (`bleak` and `bleak-retry-connector`). You do not need to install the bundled
 feeder library separately or edit Python packages inside Home Assistant.
+
+## Setup
+
+1. Open **Settings → Devices & services → Add integration → Pet Netizen BLE**.
+2. Choose **Search for devices** (BLE scan) or **Enter MAC address**.
+3. Device type is detected from the Bluetooth name when using discovery.
+4. Leave **Use a verification code** off for the tested DU-F09B.
+
+Existing Home Assistant entries are retained when replacing the upstream
+integration; there is no need to add the feeder again.
 
 ## Connection options
 
