@@ -1,0 +1,19 @@
+# Tested against Home Assistant 2026.9.4; Python 3.14 required.
+homeassistant==2026.9.4
+# Runtime imports of its Bluetooth and supporting integrations.
+aiohasupervisor==0.6.0
+aiousbwatcher==1.1.2
+bleak-retry-connector==4.7.0
+bleak==3.0.2
+bluetooth-adapters==2.4.0
+bluetooth-auto-recovery==1.6.4
+bluetooth-data-tools==1.29.24
+cronsim==2.7
+dbus-fast==5.0.22
+habluetooth==6.26.11
+home-assistant-frontend==20260826.7
+securetar==2026.4.1
+serialx==1.10.0
+pytest>=8.0
+pytest-asyncio>=0.24.0
+ruff>=0.15.9

@@ -1,0 +1,16 @@
+set_feed_plan:
+  name: Set feed plan
+  description: Set the feeding schedule for a Pet Netizen BLE feeder.
+  fields:
+    device_id:
+      name: Device
+      required: true
+      selector:
+        device:
+          integration: netizen_ble
+    schedule:
+      name: Schedule
+      required: true
+      description: List of schedule slots (weekdays, time, portions, enabled).
+      selector:
+        object:

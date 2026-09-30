@@ -1,0 +1,20 @@
+# Optional: Template sensor to show feeder schedule as readable text
+#
+# Add this to configuration.yaml (adjust the entity_id to match your Feed plan sensor,
+# e.g. sensor.pet_feeder_feed_plan). Then add an Entity card to your dashboard
+# showing sensor.feeder_schedule_readable.
+#
+# Replace sensor.pet_feeder_feed_plan with your actual feed plan sensor entity_id.
+
+template:
+  - sensor:
+      - name: "Feeder schedule"
+        unique_id: netizen_ble_feeder_schedule_readable
+        state: "{% set s = state_attr('sensor.pet_feeder_feed_plan', 'slots') or [] %}{% if s %}{{ s | length }} slot(s){% else %}No schedule{% endif %}"
+        attributes:
+          slots_text: >
+            {% set s = state_attr('sensor.pet_feeder_feed_plan', 'slots') or [] %}
+            {% for slot in s %}
+            • {{ slot.weekdays | join(', ') }} {{ slot.time }} – {{ slot.portions }} portion(s) {{ '✓' if slot.enabled else '(off)' }}
+            {% endfor %}
+          slot_count: "{{ state_attr('sensor.pet_feeder_feed_plan', 'slots') | length | default(0) }}"

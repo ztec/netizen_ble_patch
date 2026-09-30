@@ -1,0 +1,51 @@
+# Pet Netizen BLE – Lovelace UI example
+#
+# Copy the cards below into your dashboard (Raw configuration or via UI).
+# Replace the placeholder entity_ids with your actual feeder entities.
+# You can find them under: Settings → Devices & services → Pet Netizen BLE → [your device]
+#
+# Typical entity_ids (replace "pet_feeder" with your device's entity_id suffix):
+#   - button.pet_feeder_feed_now      → Feed now
+#   - number.pet_feeder_portions       → Portions per feed (1–15)
+#   - switch.pet_feeder_prompt_sound   → Prompt sound on/off
+#   - sensor.pet_feeder_feed_plan      → Schedule (slot count + slots in attributes)
+#   - button.pet_feeder_query_feed_plan → Refresh schedule from device
+
+# -------- Card 1: Feed & sound controls --------
+type: vertical-stack
+cards:
+  - type: entities
+    title: Pet feeder
+    show_header_toggle: false
+    entities:
+      - entity: button.pet_feeder_feed_now
+        name: Feed now
+      - entity: number.pet_feeder_portions
+        name: Portions per feed
+      - entity: switch.pet_feeder_prompt_sound
+        name: Prompt sound
+
+  # -------- Card 2: Schedule (slot count + refresh) --------
+  - type: entities
+    title: Schedule
+    show_header_toggle: false
+    entities:
+      - entity: sensor.pet_feeder_feed_plan
+        name: Feed plan
+      - entity: button.pet_feeder_query_feed_plan
+        name: Refresh schedule from device
+
+  # Optional Card 3: Readable schedule (requires template_sensor_schedule.yaml)
+  # Uncomment and add below to show formatted schedule. Add the template sensor first.
+  # - type: vertical-stack
+  #   cards:
+  #     - type: entity
+  #       entity: sensor.feeder_schedule
+  #       name: Schedule
+  #     - type: entities
+  #       title: Schedule details
+  #       show_header_toggle: false
+  #       entities:
+  #         - entity: sensor.feeder_schedule
+  #           attribute: slots_text
+  #           name: Slots

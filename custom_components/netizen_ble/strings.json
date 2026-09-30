@@ -1,0 +1,224 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add Pet Netizen feeder",
+        "description": "Choose how to add the device."
+      },
+      "manual": {
+        "title": "Enter MAC address",
+        "description": "{hint}",
+        "data": {
+          "address": "MAC address",
+          "name": "Device name (optional)",
+          "verification_code": "Verification code",
+          "use_verification_code": "Use a verification code",
+          "auto_sync_time": "Automatically synchronize the feeder clock"
+        },
+        "data_description": {
+          "address": "Bluetooth MAC in format XX:XX:XX:XX:XX:XX",
+          "verification_code": "Eight hexadecimal digits. Ignored when verification is off; this is not necessarily a phone-app PIN.",
+          "use_verification_code": "Leave off for the tested DU-F09B. Enable only if your feeder needs a known family ID.",
+          "auto_sync_time": "Answer clock-sync requests from the feeder using Home Assistant time. The Sync time button remains available when this is off."
+        }
+      },
+      "discover": {
+        "title": "Search for devices",
+        "description": "Select a feeder found by BLE scan.",
+        "data": {
+          "address": "Device",
+          "verification_code": "Verification code",
+          "use_verification_code": "Use a verification code",
+          "auto_sync_time": "Automatically synchronize the feeder clock"
+        },
+        "data_description": {
+          "use_verification_code": "Leave off for the tested DU-F09B. Enable only if your feeder needs a known family ID.",
+          "verification_code": "Eight hexadecimal digits. Ignored when verification is off; this is not necessarily a phone-app PIN.",
+          "auto_sync_time": "Answer clock-sync requests from the feeder using Home Assistant time. The Sync time button remains available when this is off."
+        }
+      },
+      "confirm": {
+        "title": "Add Pet Netizen feeder",
+        "description": "Add {name}?"
+      }
+    },
+    "error": {
+      "invalid_address": "Invalid MAC address. Use format XX:XX:XX:XX:XX:XX",
+      "not_supported": "This device is not a supported Pet Netizen feeder",
+      "no_discovery": "No discovery info",
+      "no_devices_found": "No feeders found. Make sure the device is on and in range.",
+      "invalid_selection": "Please select a device.",
+      "invalid_verification_code": "Use exactly eight hexadecimal digits (0–9, A–F), or turn verification off."
+    },
+    "abort": {
+      "not_supported": "This device is not a supported Pet Netizen feeder",
+      "already_configured": "Device is already configured",
+      "no_discovery": "No discovery info",
+      "invalid_verification_code": "Use exactly eight hexadecimal digits (0–9, A–F), or turn verification off."
+    }
+  },
+  "entity": {
+    "switch": {
+      "manual_feed": {
+        "name": "Manual feed"
+      },
+      "child_lock": {
+        "name": "Child lock"
+      },
+      "prompt_sound": {
+        "name": "Prompt sound"
+      },
+      "led": {
+        "name": "LED indicator"
+      },
+      "atmosphere_light": {
+        "name": "Atmosphere light"
+      },
+      "auto_lock": {
+        "name": "Auto lock"
+      },
+      "do_not_disturb": {
+        "name": "Do not disturb"
+      },
+      "long_ring": {
+        "name": "Long ring"
+      },
+      "cp01b_sound": {
+        "name": "Sound"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Fault"
+      }
+    },
+    "sensor": {
+      "battery_level": {
+        "name": "Battery"
+      },
+      "feed_plan": {
+        "name": "Feed plan"
+      },
+      "next_feeding": {
+        "name": "Next feeding"
+      },
+      "firmware_version": {
+        "name": "Firmware version"
+      },
+      "fault_status": {
+        "name": "Fault status"
+      },
+      "feeding_status": {
+        "name": "Feeding status"
+      },
+      "last_feed_time": {
+        "name": "Last feed time"
+      },
+      "tc02_auto_countdown_remaining": {
+        "name": "Countdown remaining"
+      }
+    },
+    "button": {
+      "feed_now": {
+        "name": "Feed now"
+      },
+      "query_feed_plan": {
+        "name": "Refresh schedule"
+      },
+      "sync_time": {
+        "name": "Sync time"
+      },
+      "factory_reset": {
+        "name": "Factory reset"
+      }
+    },
+    "number": {
+      "portions": {
+        "name": "Portions"
+      },
+      "operation_mode": {
+        "name": "Operation mode"
+      },
+      "rotation_mode": {
+        "name": "Rotation mode"
+      },
+      "volume": {
+        "name": "Volume"
+      },
+      "playback_frequency": {
+        "name": "Playback frequency"
+      },
+      "sound_effect": {
+        "name": "Sound effect"
+      },
+      "auto_mode_countdown": {
+        "name": "Auto mode countdown"
+      },
+      "fun_mode": {
+        "name": "Fun mode"
+      },
+      "tc02_operation_mode": {
+        "name": "Operation mode"
+      },
+      "tc02_rotation_mode": {
+        "name": "Rotation mode"
+      },
+      "tc02_mood_light_mode": {
+        "name": "Mood light mode"
+      },
+      "tc02_led_color": {
+        "name": "LED color"
+      },
+      "tc02_sound_effect": {
+        "name": "Sound effect"
+      },
+      "tc02_playback_frequency": {
+        "name": "Playback frequency"
+      },
+      "tc02_volume": {
+        "name": "Volume"
+      },
+      "tc02_auto_mode_countdown": {
+        "name": "Auto mode countdown"
+      },
+      "tc02_color_r": {
+        "name": "Color red"
+      },
+      "tc02_color_g": {
+        "name": "Color green"
+      },
+      "tc02_color_b": {
+        "name": "Color blue"
+      }
+    },
+    "time": {
+      "dnd_start": {
+        "name": "Do not disturb start"
+      },
+      "dnd_end": {
+        "name": "Do not disturb end"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Connection options",
+        "description": "Changes reconnect the feeder. Verification and automatic clock synchronization are off by default.",
+        "data": {
+          "use_verification_code": "Use a verification code",
+          "verification_code": "Verification code",
+          "auto_sync_time": "Automatically synchronize the feeder clock"
+        },
+        "data_description": {
+          "use_verification_code": "Leave off for the tested DU-F09B. Enable only if your feeder needs a known family ID.",
+          "verification_code": "Eight hexadecimal digits. Ignored when verification is off; this is not necessarily a phone-app PIN.",
+          "auto_sync_time": "Answer clock-sync requests from the feeder using Home Assistant time. The Sync time button remains available when this is off."
+        }
+      }
+    },
+    "error": {
+      "invalid_verification_code": "Use exactly eight hexadecimal digits (0–9, A–F), or turn verification off."
+    }
+  }
+}

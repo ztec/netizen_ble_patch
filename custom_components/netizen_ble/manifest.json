@@ -1,0 +1,38 @@
+{
+  "domain": "netizen_ble",
+  "name": "Pet Netizen BLE",
+  "bluetooth": [
+    {
+      "connectable": true,
+      "service_uuid": "0000ae30-0000-1000-8000-00805f9b34fb"
+    },
+    {
+      "connectable": true,
+      "service_uuid": "0000fff0-0000-1000-8000-00805f9b34fb"
+    },
+    {
+      "connectable": true,
+      "service_uuid": "0000ffff-0000-1000-8000-00805f9b34fb"
+    },
+    {
+      "connectable": true,
+      "service_uuid": "0000ae00-0000-1000-8000-00805f9b34fb"
+    }
+  ],
+  "codeowners": [
+    "@ztec"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "bluetooth"
+  ],
+  "documentation": "https://github.com/ztec/netizen_ble_patch",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/ztec/netizen_ble_patch/issues",
+  "requirements": [
+    "bleak>=2.1.0",
+    "bleak-retry-connector>=4.0.0"
+  ],
+  "version": "3.0.0"
+}
